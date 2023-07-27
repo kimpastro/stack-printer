@@ -39,6 +39,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 1.21"
   spec.add_development_dependency "pry-byebug", "~> 3.10", ">= 3.10.1"
 
+  spec.add_dependency "colorize", "~> 1.1"
+
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

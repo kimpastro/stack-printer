@@ -7,13 +7,13 @@ RSpec.describe StackPrinter do
 
   describe "#{described_class}::full_report" do
     it "returns an Array" do
-      expect(described_class.full_report).to be_a_kind_of(Array)
+      expect(described_class.report).to be_a_kind_of(Array)
     end
   end
 
   describe "#{described_class}::local_report" do
     it "returns an Array" do
-      expect(described_class.local_report).to be_a_kind_of(Array)
+      expect(described_class.report(false)).to be_a_kind_of(Array)
     end
   end
 end

@@ -8,12 +8,14 @@ module StackPrinter
   ROOT_PATH = File.expand_path("../", __dir__)
 
   class << self
-    def full_report
-      Stack.report
+    def report(full_path = true)
+      Stack.report(full_path)
     end
 
-    def local_report
-      Stack.report(false)
+    def pretty_report(full_path = true)
+      Stack.pretty(full_path)
     end
   end
 end
+
+require "stack_printer/object"
