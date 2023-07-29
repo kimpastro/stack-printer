@@ -11,21 +11,18 @@ RSpec.describe StackPrinter do
     end
   end
 
-  describe "#{described_class}::report(false)" do
+  describe "#{described_class}::report(deep: false)" do
     it "returns an Array" do
-      expect(described_class.report(false)).to be_a_kind_of(Array)
+      expect(described_class.report(deep: false)).to be_a_kind_of(Array)
     end
   end
 
-  describe "#{described_class}::pretty_report" do
-    it "returns an Array" do
-      expect(described_class.pretty_report).to be_a_kind_of(Array)
-    end
-  end
+  describe "#{described_class}::report(as_object: true)" do
+    it "returns an Array of StackPrinter::Call" do
+      report_objects = described_class.report(as_object: true)
+      any_non_caller = report_objects.none? {|obj| obj.is_a?(StackPrinter::Call) }
 
-  describe "#{described_class}::pretty_report(false)" do
-    it "returns an Array" do
-      expect(described_class.pretty_report(false)).to be_a_kind_of(Array)
+      expect(any_non_caller).to be_falsy
     end
   end
 end

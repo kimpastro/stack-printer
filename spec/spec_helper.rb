@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "../lib/stack_printer"
+Dir["#{StackPrinter::ROOT_PATH}/spec/support/**/*.rb"].sort.each { |f| require f }
 
 Bundler.require(:development)
 

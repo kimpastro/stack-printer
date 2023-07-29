@@ -1,24 +1,59 @@
 # StackPrinter
 
-TODO: Delete this and the text below, and describe your gem
+This gem was not add to rubygems.org.
+In order to use it you should add to your Gemfile like this:
+```ruby
+# Gemfile
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stack/printer`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+gem 'stack-printer', git: 'https://github.com/kimpastro/stack_printer.git', branch: 'main'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+In any part of your code you just put:
+```ruby
+sp_full
+# or
+sp_local
+```
+An array of the stacktrace string as response.
+
+Use sp_local if you want to get just your application stack (without printing all gems path) use:
+
+You also have a way to get an Array of objects instead of an array of string:
+```ruby
+sp_objects
+```
+You get an Array of `StackPrinter::Call`'s objects. This object has 3 attributes:
+```ruby
+
+sp_objects.each do |call|
+  call.meth
+  call.path
+  call.line
+end
+```
+
+## Printing on screen
+
+There's two ways that you can print:
+1. Default
+```ruby
+sp_full_print
+# or
+sp_local_print
+```
+
+2. Manually via `sp_objects`
+```ruby
+
+sp_objects.each do |call|
+  call.to_s
+end
+```
+
+
 
 ## Development
 
