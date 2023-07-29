@@ -1,6 +1,7 @@
 # StackPrinter
 
 This gem was not added to rubygems.org
+
 In order to use it you should add into your Gemfile like this:
 ```ruby
 # Gemfile
