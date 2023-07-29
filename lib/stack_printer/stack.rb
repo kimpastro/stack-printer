@@ -13,8 +13,6 @@ module StackPrinter
       def pretty(full_path = true)
         payload = full_path ? backtrace : local_backtrace
         print_it(payload)
-
-        nil
       end
   
       def find(&block)
