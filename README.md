@@ -14,7 +14,7 @@ gem 'stack-printer', git: 'https://github.com/kimpastro/stack_printer.git', bran
 ## Usage
 
 ```ruby
-# Just send .find message to StackPrinter class
+# Just send .fink message to StackPrinter class
 StackPrinter.fink
 ```
 This will prints into your console the full stacktrace until it reaches the place you call it.
