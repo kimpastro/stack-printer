@@ -8,15 +8,13 @@ require "stack_printer/stack"
 require "stack_printer/trace"
 
 module StackPrinter
-  def self.fink
-    call_list.each { |call| Printer.exec(call) }
+  def self.fink(deep = true)
+    Stack
+      .new(calls: Trace.call(deep: deep))
+      .each do |call|
+        Printer.exec(call)
+      end
 
     nil
-  end
-
-  private
-
-  def self.call_list
-    Stack.new(calls: Trace.call)
   end
 end

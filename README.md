@@ -19,9 +19,9 @@ StackPrinter.fink
 ```
 This will prints into your console the full stacktrace until it reaches the place you call it.
 
-In order to print only your project's stacktrace, send as argument `deep: false`.
+In order to print only your project's stacktrace, send as argument `false`
 ```ruby
-StackPrinter.fink(deep: false)
+StackPrinter.fink(false)
 ```
 
 That's it.
