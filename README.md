@@ -1,6 +1,7 @@
 # StackPrinter
+It prints the full stacktrace colorized.
 
-This gem was not added to rubygems.org
+> This gem was not added to rubygems.org. It's purpose was to study and practice ruby coding.
 
 In order to use it you should add into your Gemfile like this:
 ```ruby
@@ -12,49 +13,15 @@ gem 'stack-printer', git: 'https://github.com/kimpastro/stack_printer.git', bran
 
 ## Usage
 
-In any part of your code you just put:
 ```ruby
-sp_full
-# or
-sp_local
+# Just send .find message to StackPrinter class
+StackPrinter.fink
 ```
-An array of the stacktrace string as response.
+This will prints into your console the full stacktrace until it reaches the place you call it.
 
-Use sp_local if you want to get just your application stack (without printing all gems path) use:
-
-You also have a way to get an Array of objects instead of an array of string:
+In order to print only your project's stacktrace, send as argument `deep: false`.
 ```ruby
-sp_objects
-```
-You get an Array of `StackPrinter::Call`'s objects. This object has 3 attributes:
-```ruby
-sp_objects.each do |call|
-  call.meth
-  call.path
-  call.line
-end
+StackPrinter.fink(deep: false)
 ```
 
-## Printing on screen
-
-There's two ways that you can print:
-### Default
-```ruby
-sp_full_print
-# or
-sp_local_print
-```
-
-### Manually via `sp_objects`
-```ruby
-
-sp_objects.each do |call|
-  # Using it's attributes
-  call.meth
-  call.path
-  call.line
-
-  # or calling the to_s method
-  call.to_s
-end
-```
+That's it.
